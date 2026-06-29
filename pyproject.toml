@@ -1,0 +1,37 @@
+[project]
+
+name = "atlas"
+
+version = "0.1.0"
+
+description = "Scientific PDF Intelligence Engine"
+
+requires-python = ">=3.11"
+
+dependencies = [
+
+    "pymupdf>=1.26",
+
+    "pydantic>=2.10",
+
+    "orjson",
+
+    "opencv-python",
+
+    "numpy",
+
+    "Pillow",
+
+    "networkx",
+
+    "typer",
+
+    "rich",
+
+    "tqdm"
+
+]
+
+[project.scripts]
+
+atlas = "atlas.cli:app"

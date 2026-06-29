@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual env
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Test
+.pytest_cache/
+.mypy_cache/
+
+# Build
+dist/
+build/
+
+# Atlas outputs
+output/
+data/rendered/
+data/json/
+
+# OS
+.DS_Store
+Thumbs.db
