@@ -1,37 +1,36 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
-
 name = "atlas"
-
 version = "0.1.0"
-
 description = "Scientific PDF Intelligence Engine"
-
+readme = "README.md"
 requires-python = ">=3.11"
 
 dependencies = [
-
     "pymupdf>=1.26",
-
-    "pydantic>=2.10",
-
+    "pydantic>=2",
     "orjson",
-
     "opencv-python",
-
     "numpy",
-
     "Pillow",
-
     "networkx",
-
     "typer",
-
     "rich",
-
     "tqdm"
-
 ]
 
 [project.scripts]
+atlas = "atlas.cli:main"
 
-atlas = "atlas.cli:app"
+# IMPORTANT
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+atlas = ["**/*"]

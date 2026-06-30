@@ -1,0 +1,38 @@
+Metadata-Version: 2.4
+Name: atlas
+Version: 0.1.0
+Summary: Scientific PDF Intelligence Engine
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: pymupdf>=1.26
+Requires-Dist: pydantic>=2
+Requires-Dist: orjson
+Requires-Dist: opencv-python
+Requires-Dist: numpy
+Requires-Dist: Pillow
+Requires-Dist: networkx
+Requires-Dist: typer
+Requires-Dist: rich
+Requires-Dist: tqdm
+
+Atlas
+
+Scientific Document Intelligence Engine
+
+Goals
+
+✔ Multiple articles in one PDF
+
+✔ Mixed layouts
+
+✔ Multilingual journals
+
+✔ Local inference
+
+✔ No cloud APIs
+
+✔ Extensible pipeline
+
+Current milestone
+
+Build Atlas Document Model
