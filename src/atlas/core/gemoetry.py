@@ -105,3 +105,28 @@ class Rect:
             (cx1 - cx2) ** 2
             + (cy1 - cy2) ** 2
         )
+
+    def translate(
+            self,
+            dx: float,
+            dy: float,
+    ) -> "Rect":
+
+        return Rect(
+            x0=self.x0 + dx,
+            y0=self.y0 + dy,
+            x1=self.x1 + dx,
+            y1=self.y1 + dy,
+        )
+
+    def expand(
+            self,
+            margin: float,
+    ) -> "Rect":
+
+        return Rect(
+            x0=self.x0 - margin,
+            y0=self.y0 - margin,
+            x1=self.x1 + margin,
+            y1=self.y1 + margin,
+        )
