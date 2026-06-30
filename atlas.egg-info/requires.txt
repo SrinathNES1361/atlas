@@ -1,0 +1,10 @@
+pymupdf>=1.26
+pydantic>=2
+orjson
+opencv-python
+numpy
+Pillow
+networkx
+typer
+rich
+tqdm
