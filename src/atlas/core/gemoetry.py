@@ -50,18 +50,19 @@ class Rect:
 
     def contains(self, other: "Rect") -> bool:
         return (
-                self.x0 <= other.x0
-                and self.y0 <= other.y0
-                and self.x1 >= other.x1
-                and self.y1 >= other.y1
+            self.x0 <= other.x0
+            and self.y0 <= other.y0
+            and self.x1 >= other.x1
+            and self.y1 >= other.y1
         )
+
     # Intersection.
     def intersects(self, other: "Rect") -> bool:
         return not (
-                self.x1 < other.x0
-                or self.x0 > other.x1
-                or self.y1 < other.y0
-                or self.y0 > other.y1
+            self.x1 < other.x0
+            or self.x0 > other.x1
+            or self.y1 < other.y0
+            or self.y0 > other.y1
         )
 
     # Intersection rectangle.
@@ -91,9 +92,7 @@ class Rect:
         if inter is None:
             return 0.0
 
-        return inter.area / (
-                self.area + other.area - inter.area
-        )
+        return inter.area / (self.area + other.area - inter.area)
 
     def distance(self, other):
 
@@ -101,15 +100,12 @@ class Rect:
 
         cx2, cy2 = other.center
 
-        return sqrt(
-            (cx1 - cx2) ** 2
-            + (cy1 - cy2) ** 2
-        )
+        return sqrt((cx1 - cx2) ** 2 + (cy1 - cy2) ** 2)
 
     def translate(
-            self,
-            dx: float,
-            dy: float,
+        self,
+        dx: float,
+        dy: float,
     ) -> "Rect":
 
         return Rect(
@@ -120,8 +116,8 @@ class Rect:
         )
 
     def expand(
-            self,
-            margin: float,
+        self,
+        margin: float,
     ) -> "Rect":
 
         return Rect(
