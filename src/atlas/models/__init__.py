@@ -6,8 +6,8 @@ from atlas.models.span import Span
 
 __all__ = [
     "Document",
-    "Page",
-    "Node",
     "Line",
+    "Node",
+    "Page",
     "Span",
 ]

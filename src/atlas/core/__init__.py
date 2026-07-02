@@ -4,6 +4,6 @@ from atlas.core.object import AtlasObject
 
 __all__ = [
     "AtlasObject",
-    "Rect",
     "NodeType",
+    "Rect",
 ]

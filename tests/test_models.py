@@ -75,3 +75,6 @@ def test_document():
     )
 
     assert document.page_count == 1
+    assert document.node_count == 0
+    assert document.line_count == 0
+    assert document.span_count == 0

@@ -23,7 +23,13 @@ build/
 output/
 data/rendered/
 data/json/
+examples/
 
 # OS
 .DS_Store
 Thumbs.db
+
+__pycache__/
+*.pyc
+
+.ruff_cache/
