@@ -34,13 +34,13 @@ class Rect:
         return self.width * self.height
 
     @property
-    def center(self):
+    def center(self) -> tuple[float, float]:
         return (
             (self.x0 + self.x1) / 2,
             (self.y0 + self.y1) / 2,
         )
 
-    def to_tuple(self):
+    def to_tuple(self) -> tuple[float, float, float, float]:
         return (
             self.x0,
             self.y0,
@@ -48,7 +48,7 @@ class Rect:
             self.y1,
         )
 
-    def contains(self, other: "Rect") -> bool:
+    def contains(self, other: Rect) -> bool:
         return (
             self.x0 <= other.x0
             and self.y0 <= other.y0
@@ -57,16 +57,13 @@ class Rect:
         )
 
     # Intersection.
-    def intersects(self, other: "Rect") -> bool:
+    def intersects(self, other: Rect) -> bool:
         return not (
-            self.x1 < other.x0
-            or self.x0 > other.x1
-            or self.y1 < other.y0
-            or self.y0 > other.y1
+            self.x1 < other.x0 or self.x0 > other.x1 or self.y1 < other.y0 or self.y0 > other.y1
         )
 
     # Intersection rectangle.
-    def intersection(self, other):
+    def intersection(self, other: Rect) -> Rect | None:
         if not self.intersects(other):
             return None
 
@@ -77,7 +74,7 @@ class Rect:
             min(self.y1, other.y1),
         )
 
-    def union(self, other):
+    def union(self, other: Rect) -> Rect:
         return Rect(
             min(self.x0, other.x0),
             min(self.y0, other.y0),
@@ -85,7 +82,7 @@ class Rect:
             max(self.y1, other.y1),
         )
 
-    def iou(self, other):
+    def iou(self, other: Rect) -> float:
 
         inter = self.intersection(other)
 
@@ -94,10 +91,8 @@ class Rect:
 
         return inter.area / (self.area + other.area - inter.area)
 
-    def distance(self, other):
-
+    def distance(self, other: Rect) -> float:
         cx1, cy1 = self.center
-
         cx2, cy2 = other.center
 
         return sqrt((cx1 - cx2) ** 2 + (cy1 - cy2) ** 2)
@@ -106,7 +101,7 @@ class Rect:
         self,
         dx: float,
         dy: float,
-    ) -> "Rect":
+    ) -> Rect:
 
         return Rect(
             x0=self.x0 + dx,
@@ -118,7 +113,7 @@ class Rect:
     def expand(
         self,
         margin: float,
-    ) -> "Rect":
+    ) -> Rect:
 
         return Rect(
             x0=self.x0 - margin,

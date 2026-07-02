@@ -7,7 +7,7 @@ name = "atlas"
 version = "0.1.0"
 description = "Scientific PDF Intelligence Engine"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 
 dependencies = [
     "pymupdf>=1.26",
@@ -22,10 +22,17 @@ dependencies = [
     "tqdm"
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+    "mypy",
+    "pre-commit",
+]
+
 [project.scripts]
 atlas = "atlas.cli:main"
 
-# IMPORTANT
 [tool.setuptools]
 package-dir = {"" = "src"}
 
@@ -34,3 +41,38 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 atlas = ["**/*"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "UP",
+    "B",
+    "SIM",
+    "RUF",
+]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+mypy_path = "src"
+warn_return_any = true
+warn_unused_configs = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = [
+    "pymupdf",
+]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = [ "atlas.adapters.pymupdf",]
+disallow_untyped_calls = false
